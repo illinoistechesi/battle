@@ -1,5 +1,6 @@
 import redteam.*;
 import blueteam.*;
+import esi18.*;
 import battleship.core.*;
 import java.util.*;
 
@@ -21,9 +22,9 @@ public class Main extends Game {
 	public static Game launch(int seed) {
 		Game mission = new Main();
 		mission.setSeed(seed);
-		mission.setArenaFile("./arena.txt");
-		mission.setTurnFile("./turns.txt");
-		mission.setLogFile("./logs.txt");
+		mission.setArenaFile("./files/arena.txt");
+		mission.setTurnFile("./files/turns.txt");
+		mission.setLogFile("./files/logs.txt");
 		return mission;
 	}
 	
@@ -49,31 +50,32 @@ public class Main extends Game {
 			{9, 0},
 			{9, 9}
 		};
-	
-		// add ship and team here
-		Ship scarlet = new ScarletShip();
-		setShipTeam(scarlet, "Red Team");
-		setShipColor(scarlet, "#ff291e");
-		// spawnShip(arena, x, y, ship);
-		spawnShip(arena, spawns[0][0], spawns[0][1], scarlet);
-		redTeam.add(scarlet);
 
-		Ship crimson = new CrimsonShip();
-		setShipTeam(crimson, "Red Team");
-		setShipColor(crimson, "#ce1059");
-		spawnShip(arena, spawns[1][0], spawns[1][1], crimson);
-		redTeam.add(crimson);
+		// add ship and team here
+		// spawnShip(arena, x, y, ship);
+		
+		Ship red1 = new SimpleShip();
+		setShipTeam(red1, "Red Team");
+		setShipColor(red1, "#ff291e");
+		spawnShip(arena, 0, 5, red1);
+		redTeam.add(red1);
+		
+		Ship red2 = new SimpleShip();
+		setShipTeam(red2, "Red Team");
+		setShipColor(red2, "#ce1059");
+		spawnShip(arena, 0, 6, red2);
+		redTeam.add(red2);
 
 		Ship azure = new AzureShip();
 		setShipTeam(azure, "Blue Team");
 		setShipColor(azure, "#1c89ff");
-		spawnShip(arena, spawns[2][0], spawns[2][1], azure);
+		spawnShip(arena, 9, 5, azure);
 		blueTeam.add(azure);
 
 		Ship teal = new TealShip();
 		setShipTeam(teal, "Blue Team");
 		setShipColor(teal, "#149eba");
-		spawnShip(arena, spawns[3][0], spawns[3][1], teal);
+		spawnShip(arena, 9, 6, teal);
 		blueTeam.add(teal);
 
 		return arena;
