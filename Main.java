@@ -44,35 +44,33 @@ public class Main extends Game {
 	@Override
 	public Arena initializeArena() {
 		Arena arena = new Arena(10, 10);
-		int[][] spawns = {
-			{0, 0},
-			{0, 9},
-			{9, 0},
-			{9, 9}
-		};
 
 		// add ship and team here
-		// spawnShip(arena, x, y, ship);
-		
-		Ship red1 = new SimpleShip();
-		setShipTeam(red1, "Red Team");
-		setShipColor(red1, "#ff291e");
-		spawnShip(arena, 0, 5, red1);
-		redTeam.add(red1);
-		
-		Ship red2 = new SimpleShip();
-		setShipTeam(red2, "Red Team");
-		setShipColor(red2, "#ce1059");
-		spawnShip(arena, 0, 6, red2);
-		redTeam.add(red2);
+		// Ship ship1 = new [YourShipName]Ship.java
+		// setShipTeam(ship1, "Team Name");
+		// setShipColor(ship1, "#ffffff");
+		// spawnShip(arena, [x coordinate], [y coordinate], ship1);
 
+		Ship scarlet = new SimpleShip();
+		Ship crimson = new SimpleShip();
 		Ship azure = new AzureShip();
+		Ship teal = new TealShip();
+
+		setShipTeam(scarlet, "Red Team");
+		setShipColor(scarlet, "#ff291e");
+		spawnShip(arena, 0, 5, scarlet);
+		redTeam.add(scarlet);
+		
+		setShipTeam(crimson, "Red Team");
+		setShipColor(crimson, "#dc143c");
+		spawnShip(arena, 0, 6, crimson);
+		redTeam.add(crimson);
+
 		setShipTeam(azure, "Blue Team");
 		setShipColor(azure, "#1c89ff");
 		spawnShip(arena, 9, 5, azure);
 		blueTeam.add(azure);
 
-		Ship teal = new TealShip();
 		setShipTeam(teal, "Blue Team");
 		setShipColor(teal, "#149eba");
 		spawnShip(arena, 9, 6, teal);
